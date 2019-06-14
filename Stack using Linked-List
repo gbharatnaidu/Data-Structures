@@ -1,0 +1,73 @@
+#include<stdio.h>
+#include<stdlib.h>
+struct stack  /*creation of stack node*/
+{
+  int data;
+  struct stack *next;
+}*top=NULL, *temp=NULL;
+void push()   /*pushing the element into the stack*/
+{
+temp=(struct stack*)malloc(sizeof(struct stack)); /*when u tried for creating the new node but when the memory is full it will retutn null*/
+int n;
+if(temp==NULL){
+        printf("\nstack is full");
+}
+else{
+    printf("\nenter the value to insert:");
+    scanf("%d",&n);
+    temp->data=n;
+    temp->next=top;
+    top=temp;
+    temp=NULL;
+}
+}
+void pop()  /*pushing the element into the stack*/
+{
+    if(top==NULL)
+    {
+         printf("\nunderflow");
+    }
+    else
+    {
+        temp=top;
+        top=temp->next;
+        free(temp);
+        temp=NULL;
+        printf("\nlast element popped out");
+    }
+
+}
+void display()
+{
+        temp=top;
+        printf("\nelements in the stack are:");
+        while(temp!=NULL){
+            printf("%d ",temp->data);
+            temp=temp->next;
+        }
+
+}
+int main()
+{
+    int k;
+do
+{
+        printf("\nchoose the option");
+        printf("\n1.push\n2.pop\n3.display\n4.exit");
+        scanf("%d",&k);
+        switch(k){
+            case 1:push();
+            display();
+            break;
+            case 2:pop();
+            display();
+            break;
+            case 3:display();
+            break;
+            case 4:exit(1);
+            default:
+                printf("\nchoose the correct option");
+        }
+}while(1);
+
+}
