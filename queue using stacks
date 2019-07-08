@@ -1,0 +1,55 @@
+#include<stdio.h>
+#include<stdlib.h>
+struct stack1{
+int data;
+struct stack1 *next;
+}*top1=NULL,*temp1=NULL,*d=NULL;
+struct stack2{
+int data;
+struct stack2 *next;
+}*top2=NULL,*temp2=NULL;
+void enqueue(){
+int n;
+temp1=(struct stack1*)malloc(sizeof(struct stack1));
+printf("\nenter the data:");
+scanf("%d",&n);
+if(top==NULL){
+    top=temp1;
+    temp1=NULL;
+}
+else{
+    temp1->next=top;
+    top=temp1;
+    temp1=NULL;
+}
+}
+void dequeue(){
+if(top2==NULL){
+    temp1=top1;
+    while(temp1!=NULL){
+        top2->data=temp1->data;
+        temp1=temp1->next;
+        d=top1;
+        top1=top1->next;
+        free(d);
+        d=NULL;
+        
+    }
+    temp2=top2;
+    top2=top2->next;
+    free(temp);
+    temp=NULL;
+}
+else{
+    temp2=top2;
+    top2=top2->next;
+    free(temp);
+    temp=NULL;
+}
+}
+void display(){
+temp2=top2;
+while(temp2!=null){
+    printf()
+}
+}
