@@ -36,13 +36,16 @@ else if(head==tail){
 }
 else {
     temp=head;
-    head=temp->next;
+    head=head->next;
     tail->next=head;
     free(temp);
     temp=NULL;
 }
 }
 void display(){
+    if(head==NULL)
+    printf("\nno elements to display");
+else{
 temp=head;
 do{
     printf("%d ",temp->data);
@@ -50,15 +53,25 @@ do{
 }while(temp!=head);
 temp=NULL;
 }
+}
 int main(){
-int size=1;
-do{
-enqueue();
-display();
-dequeue();
-printf("hello");
-display();
-size++;
-}while(size<8);
-return 0;
+    int k;
+    do{
+        printf("\nchoose the option");
+        printf("\n1.enqueue\n2.dequeue\n3.display\n4.exit");
+        scanf("%d",&k);
+        switch(k){
+            case 1:enqueue();
+            display();
+            break;
+            case 2:dequeue();
+            display();
+            break;
+            case 3:display();
+            break;
+            case 4:exit(1);
+            default:
+                printf("\nchoose the correct option");
+        }
+}while(1);
 }
