@@ -5,6 +5,7 @@ void insertbeg();
 void insertend();
 void insertmiddle();
 void display();
+void reverse_list();
 struct node
 {
   int data;
@@ -14,7 +15,7 @@ int main()
 {
 int n;
 while(1){
-printf("\n1.insertatbeg\n2.insertatend\n3.insertatmiddle\n4.display\n5.deletebeg\n6.deleteend\n7.deletemiddle\n8.exit\n");
+printf("\n1.insertatbeg\n2.insertatend\n3.insertatmiddle\n4.display\n5.deletebeg\n6.deleteend\n7.deletemiddle\n8.reverse a list\n9.exit\n");
 scanf("%d",&n);
 switch(n){
 case 1:insertbeg();
@@ -37,7 +38,10 @@ break;
 case 7:deletemiddle();
 display();
 break;
-case 8:exit(1);
+case 8:reverse_list();
+display();
+break;
+case 9:exit(1);
 }
  }
  }
@@ -177,4 +181,14 @@ void deleteList()
     }
 
     printf("SUCCESSFULLY DELETED ALL NODES OF LINKED LIST\n");
+}
+void reverse_list(){
+    struct node *prev=NULL,*next=NULL,*curr=head;
+    while(curr!=NULL){
+    next=curr->next;
+    curr->next=prev;
+    prev=curr;
+    curr=next;
+    }
+    head=prev;
 }
