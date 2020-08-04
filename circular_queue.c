@@ -3,55 +3,53 @@
 struct circular_buffer{
 int data;
 struct circular_buffer *next;
-}*head=NULL,*tail=NULL,*temp=NULL;
+}*head=NULL,*tail=NULL,*new_node=NULL;
 void createnode(){
 int n;
-temp=(struct circular_buffer*)malloc(sizeof(struct circular_buffer));
+new_node=(struct circular_buffer*)malloc(sizeof(struct circular_buffer));
 printf("\nenter the data:");
 scanf("%d",&n);
-temp->data=n;
-temp->next=NULL;
+new_node->data=n;
+new_node->next=NULL;
 }
 void enqueue(){
 createnode();
 if(head==NULL){
-    head=tail=temp;
-    temp=NULL;
+    head=tail=new_node;
 }
 else{
-    tail->next=temp;
-    tail=temp;
-    temp=NULL;
+    tail->next=new_node;
+    tail=new_node;
 }
 tail->next=head;
 }
 void dequeue(){
+struct circular_buffer *temp;
 if(head==NULL){
     printf("\nempty");
 }
 else if(head==tail){
     temp=head;
     free(temp);
-    temp=head=tail=NULL;
+    head=tail=NULL;
 }
 else {
     temp=head;
     head=head->next;
     tail->next=head;
     free(temp);
-    temp=NULL;
 }
 }
 void display(){
-    if(head==NULL)
-    printf("\nno elements to display");
+struct circular_buffer *temp;
+if(head==NULL)
+printf("\nno elements to display");
 else{
 temp=head;
 do{
     printf("%d ",temp->data);
     temp=temp->next;
 }while(temp!=head);
-temp=NULL;
 }
 }
 int main(){
