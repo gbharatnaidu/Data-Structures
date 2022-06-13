@@ -25,7 +25,8 @@ void dequeue(){
         front=rear=-1;
     }
     else{
-        rear--;
+        front++;
+        queue[front];
     }
 }
 void display(){
