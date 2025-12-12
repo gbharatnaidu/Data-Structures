@@ -63,7 +63,6 @@ head=tail=temp;
 else{
 temp->next=head;
 head=temp;
-temp=NULL;
 }
 }
 void insertend()
@@ -75,7 +74,6 @@ head=tail=temp;
 else{
 tail->next=temp;
 tail=temp;
-temp=NULL;
 }
 }
 void display()
@@ -89,7 +87,6 @@ while(temp!=NULL){
 printf("%d\t",temp->data);
 temp=temp->next;
 }
-temp=NULL;
 }
 }
 void insertmiddle(){
@@ -106,8 +103,6 @@ for(i=2;i<pos;i++){       //we have traverse upto (n-1)th element
 if(p!=NULL){
 temp->next=p->next;
 p->next=temp;
-temp=NULL;
-p=NULL;
 }
 else{
 printf("\ncant insert at the given position");
